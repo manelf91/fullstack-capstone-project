@@ -115,12 +115,11 @@ function DetailsPage() {
                 {
                     comments.map((comment, index) => {
                         return (
-                            <div key={index}>
-                                <p><strong>Author: </strong>
-                                    {comment.author}
-                                    <br></br>
-                                    {comment.comment}
-                                </p>
+                            <div key={index} className="card mb-3">
+                                <div className="card-body">
+                                    <p className="comment-author"><strong>{comment.author}:</strong></p>
+                                    <p className="comment-text">{comment.comment}</p>
+                                </div>
                             </div>
                         )
                     })
