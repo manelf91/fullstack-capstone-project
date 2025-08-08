@@ -37,7 +37,7 @@ app.use(pinoHttp({ logger }));
 app.use("/api/gifts", giftRoutes);
 
 // Search API Task 2: add the searchRoutes to the server by using the app.use() method.
-app.use("/api/gifts", searchRoutes);
+app.use("/api/search", searchRoutes);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
