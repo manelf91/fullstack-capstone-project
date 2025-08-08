@@ -39,6 +39,8 @@ app.use("/api/gifts", giftRoutes);
 // Search API Task 2: add the searchRoutes to the server by using the app.use() method.
 app.use("/api/search", searchRoutes);
 
+app.use("/sentiment", sentimentRoutes)
+
 // Global Error Handler
 app.use((err, req, res, next) => {
     console.error(err);
