@@ -10,7 +10,7 @@ function RegisterPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    handleRegister = async () => {
+    const handleRegister = async () => {
         console.log("Register invoked");
         return;
     };
