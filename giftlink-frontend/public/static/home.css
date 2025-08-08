@@ -1,11 +1,13 @@
 /* Task 1: Style the body */
 body {
-    /* insert code here */
+    font-family: math;
+    color: wheat;
+    background: url("background-gifts.jpg") repeat 0 0;
 }
 
 /* Task 2: Create a pseudo-element for the background and blur */
 body::before {
-    /* insert code here */
+    
 }
 
 /* Task 3: Style the content area */
@@ -14,6 +16,18 @@ body::before {
 }
 
 /* Task 4: Add styles for headings, paragraphs, and buttons */
-h1, h2, .lead, .btn-primary {
-    /* insert code here */
+h1, h2, .lead {
+    
+}
+
+.btn-primary {
+    color: black;
+    background-color: wheat;
+    border-color: wheat;
+}
+
+.btn-primary:hover {
+    color: black;
+    background-color: beige;
+    border-color: wheat;
 }
