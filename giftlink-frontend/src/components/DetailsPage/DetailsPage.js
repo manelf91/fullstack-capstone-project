@@ -13,12 +13,11 @@ function DetailsPage() {
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll to top when component mounts
 
-        //todo
-        /* const authenticationToken = sessionStorage.getItem('auth-token');
+        const authenticationToken = sessionStorage.getItem('auth-token');
         if (!authenticationToken) {
             navigate("/app/login");
             return;
-        } */
+        }
 
         // get the gift to be rendered on the details page
         const fetchGift = async () => {
