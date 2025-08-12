@@ -23,7 +23,7 @@ router.post('/register', async (req, res) => {
         //Task 3: Check for existing email
         const user = await collection.findOne({ email: req.body.email });
         if (user) {
-            return res.status(500).send('Email already registered');
+            return res.status(500).json({error: 'Email already registered'});
         }
 
         const salt = await bcryptjs.genSalt(10);
@@ -60,13 +60,13 @@ router.post('/login', async (req, res) => {
         const user = await collection.findOne({ email: req.body.email });
         if (!user) {
             // Task 7: Send appropriate message if user not found
-            return res.status(404).send('Email does not exist');
+            return res.status(404).json({error: 'Email does not exist'});
         }
 
         // Task 4: Task 4: Check if the password matches the encrypyted password and send appropriate message on mismatch
         const crendials_ok = await bcryptjs.compare(req.body.password, user.password);
         if (!crendials_ok) {
-            return res.status(500).send('Wrong password');
+            return res.status(500).json({error: 'Wrong password'});
         }
 
         const userName = user.firstName;
@@ -76,7 +76,7 @@ router.post('/login', async (req, res) => {
         // Task 6: Create JWT authentication if passwords match with user._id as payload
         res.json({ authtoken, userName, userEmail });
     } catch (e) {
-        return res.status(500).send('Internal server error');
+        return res.status(500).json({error: 'Internal server error'});
     }
 });
 
@@ -110,9 +110,7 @@ router.put('/update', async (req, res) => {
         }
 
         // Task 6: update user credentials in database
-        const salt = await bcryptjs.genSalt(10);
-        const hash = await bcryptjs.hash(req.body.password, salt);
-        user.password = hash;
+        user.firstName = req.body.name;
         user.updatedAt = new Date();
         collection.updateOne({ email: email }, { $set: user });
 
@@ -121,7 +119,7 @@ router.put('/update', async (req, res) => {
 
         //Task 5: Create JWT authentication with user._id as payload
         pinoLogger.info('User credentails updated successfully');
-        res.status(201).json({ authtoken });
+        res.status(200).json({ authtoken });
     } catch (e) {
         return res.status(500).send('Internal server error');
 
