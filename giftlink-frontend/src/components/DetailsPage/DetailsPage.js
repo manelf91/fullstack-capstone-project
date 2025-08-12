@@ -39,7 +39,7 @@ function DetailsPage() {
         fetchGift();
 
 
-    }, [productId]);
+    }, [productId, navigate]);
 
     const handleBackClick = () => {
         navigate(-1);

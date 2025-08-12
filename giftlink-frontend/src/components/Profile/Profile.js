@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './Profile.css'
 import { urlConfig } from '../../config';
 import { useAppContext } from '../../context/AuthContext';

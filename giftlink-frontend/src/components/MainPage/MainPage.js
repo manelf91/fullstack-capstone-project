@@ -39,7 +39,7 @@ function MainPage() {
                     <div key={gift.id} className="col-md-4 mb-4">
                         <div className="card product-card">
                             {gift.image ?
-                                <img src={gift.image} /> :
+                                <img src={gift.image} alt={gift.name}/> :
                                 <div className="no-image-available">No Image Available</div>
                             }
                             <div className="card-body">
